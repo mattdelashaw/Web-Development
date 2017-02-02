@@ -1,14 +1,9 @@
 <?php 
-	require_once('/var/location.php');
-	$dev=gen_dude_where_are_we($_SERVER['SERVER_ADDR'], $_SERVER['REQUEST_URI']);
-	require ($_SERVER['DOCUMENT_ROOT']."$dev/includes/top_functions.php");
-	require_once($_SERVER['DOCUMENT_ROOT']."$dev/access/connection.php");
-	require_once($_SERVER['DOCUMENT_ROOT']."$dev/includes/gen_functions.php");
-	gen_sessionCheck($db);
-	gen_check_page_permission_super_admin($_SESSION['user_type']);
-	ini_set('display_errors',1);
-	ini_set('display_startup_errors',1);
-	
+	/*
+		some stuff you dont need to know about
+	*/
+
+
 	//		this is borrowed from the public information pool that is the internet to parse encoded sessions that have "|"
 	function unserializesession($data) {
 		$vars=preg_split('/([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff^|]*)\|/',
@@ -52,7 +47,7 @@
 		$("#kill-button").click(function(){
 			$.ajax({
 				type: 'POST',
-           	 	url: 'actions/kill_sessions_action.php',
+           	 	url: 'path_to/kill_all_sessions.php',
 				data: <?php echo $encodedInfoArr; ?>,
            	 	success: function() {
 					alert("sessions ended");
@@ -68,7 +63,7 @@
 	function singleUser(userArr){
 		$.ajax({
 			type: 'POST',
-           	url: 'actions/kill_single_session_action.php',
+           	url: 'path_to/kill_single_session.php',
 			data: {'id': userArr},
            	success: function(data) {
 				alert("session ended");
@@ -113,12 +108,12 @@
                             <table class="table table-bordered table-hover table-striped" id="main_table">
                                 <thead>
                                     <tr>
-										<th>Active</th>
+					<th>Active</th>
                                         <th>User</th>
                                         <th>Last Activity Time</th>
-										<th>Currently Viewing</th>
-										<th>Browser</th>
-									</tr>
+					<th>Currently Viewing</th>
+					<th>Browser</th>
+				    </tr>
                                 </thead>
                                 <tbody>
 								<?php

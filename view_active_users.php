@@ -99,19 +99,19 @@
 				<button id="kill-button" class='btn btn-red' >Kill Sessions</button>
 				<br/>
 				
-				<div class="row">
+		<div class="row">
                     <div class="col-lg-12">
-					<h3>Logged In</h3>
+			<h3>Logged In</h3>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover table-striped" id="main_table">
                                 <thead>
                                     <tr>
-					                              <th>Active</th>
+					<th>Active</th>
                                         <th>User</th>
                                         <th>Last Activity Time</th>
-					                              <th>Currently Viewing</th>
-				                              	<th>Browser</th>
-				                            </tr>
+					<th>Currently Viewing</th>
+				        <th>Browser</th>
+				    </tr>
                                 </thead>
                                 <tbody>
                                     <?php
